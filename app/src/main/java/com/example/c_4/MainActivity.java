@@ -28,22 +28,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static boolean checkBalancedBrackets(String s) {
-        Stack<Character> stack = new Stack<Character>();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == '[' || c == '(' || c == '{') {
+    public static boolean checkBalancedBrackets(String str) {
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (c == '{' || c == '(' || c == '[') {
                 stack.push(c);
             } else if (c == '}') {
-                if (stack.isEmpty() || stack.pop() != '{') {
+                if (stack.pop() != '{'|| stack.isEmpty()) {
                     return false;
                 }
             } else if (c == ')') {
-                if (stack.isEmpty() || stack.pop() != '(') {
+                if (stack.pop() != '(' || stack.isEmpty()) {
                     return false;
                 }
             } else if (c == ']') {
-                if (stack.isEmpty() || stack.pop() != '[') {
+                if (stack.pop() != '[' || stack.isEmpty()) {
                     return false;
                 }
             }
@@ -81,6 +81,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    
+
 
 }
